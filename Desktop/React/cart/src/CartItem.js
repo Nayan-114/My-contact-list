@@ -15,7 +15,22 @@ class CartItem extends React.Component{
     // To bind the value,use arrow function,it automatically binds the value
     increaseQuantity = ()=>
     {
-        console.log('this',this.state);
+        // this.state.qty += 1;    React doesn't know, so it doesn't re-render
+        // console.log('this',this.state);
+
+
+        // setState form 1
+        // this.setState({
+        //     qty:this.state.qty + 1  //show-merging:change only the required property
+        // })
+
+
+        // setState form 2 -if previous State required
+        this.setState((prevState)=>{
+            return {
+                qty:prevState.qty + 1
+            }
+        });
     }
 
     render(){
