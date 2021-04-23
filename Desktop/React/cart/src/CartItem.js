@@ -1,18 +1,33 @@
 import React from 'react'
 
 class CartItem extends React.Component{
+
+    constructor(){
+        super();
+        this.state={
+            price:999,
+            title:'MobilePhone',
+            qty:1,
+            img:''
+        }
+    }
+
     render(){
+        const {price,title,qty} = this.state;
         return (
             <div className ="cart-item">
                 <div className ="left-block">
                     <img style={styles.image} />
                 </div>
                 <div className = "right-block">
-                    <div style={{fontSize:25}}>Phone</div>
-                    <div style={{color:'#777'}}>Rs 999</div>
-                    <div style={{color:'#777'}}>Qty: 1</div>
+                    <div style={{fontSize:25}}>{title}</div>
+                    <div style={{color:'#777'}}>Rs {price}</div>
+                    <div style={{color:'#777'}}>Qty: {qty}</div>
                     <div className="cart-item-actions">
                         {/* Buttons */}
+                        <img alt="Increase" className="action-icons" src="https://www.flaticon.com/svg/vstatic/svg/992/992651.svg?token=exp=1619193959~hmac=54e997988f986897aa1a4c777386876f" />
+                        <img alt="Decrease" className="action-icons" src="https://www.flaticon.com/svg/vstatic/svg/992/992683.svg?token=exp=1619193864~hmac=3b8b79161a161d32d32a7c62a31d2749" />
+                        <img alt="Delete" className="action-icons" src="https://www.flaticon.com/svg/vstatic/svg/3096/3096673.svg?token=exp=1619194044~hmac=d1c78c9f44e6d772e6584c47a866502e" />
                     </div>
                 </div>
             </div>
