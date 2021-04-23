@@ -12,6 +12,9 @@ class CartItem extends React.Component{
         }
         // this.increaseQuantity = this.increaseQuantity.bind(this);
     }
+
+    
+
     // To bind the value,use arrow function,it automatically binds the value
     increaseQuantity = ()=>
     {
@@ -29,6 +32,19 @@ class CartItem extends React.Component{
         this.setState((prevState)=>{
             return {
                 qty:prevState.qty + 1
+            }
+        });
+    }
+    decreaseQuantity = ()=>
+    {
+        const {qty} = this.state;
+        if(qty===0)
+        {
+            return;
+        }
+        this.setState((prevState)=>{
+            return {
+                qty:prevState.qty - 1
             }
         });
     }
@@ -56,6 +72,7 @@ class CartItem extends React.Component{
                         alt="Decrease" 
                         className="action-icons" 
                         src="https://www.flaticon.com/svg/vstatic/svg/992/992683.svg?token=exp=1619193864~hmac=3b8b79161a161d32d32a7c62a31d2749" 
+                        onClick={this.decreaseQuantity}
                         />
                         <img 
                         alt="Delete" 
