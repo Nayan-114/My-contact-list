@@ -1,5 +1,6 @@
 import React, { useState } from "react";     //Creating a state in functional component with hooks
 import { calculateWinner } from "../helper";
+import { calculateWinner1 } from "../winningIndex";
 import Board from "./Board";
 
 const Game = () => {
@@ -7,6 +8,7 @@ const Game = () => {
   const [stepNumber, setStepNumber] = useState(0);
   const [xIsNext, setXisNext] = useState(true);
   const winner = calculateWinner(history[stepNumber]);
+  const winnerblock = calculateWinner1(history[stepNumber]);
   const xO = xIsNext ? "X" : "O";
 
   const handleClick = (i) => {
@@ -15,7 +17,7 @@ const Game = () => {
     const squares = [...current];   //shallow copy of current
 
     //If user click an occupied square or if game is won,return
-    if (winner || squares[i]) return;
+    if (winner||squares[i]) return;
     // select square
     squares[i] = xO;
     setHistory([...historyPoint, squares]);
@@ -49,7 +51,7 @@ const Game = () => {
         </div>
         <div>
               {/* check the winner or the next player i.e: 'x' or 'o' */}
-            <h3>{winner ? "Winner: " + winner : "Next Player: " + xO}</h3>
+            <h3>{winner ? "Winner: " + winner+" " + winnerblock: "Next Player: " + xO}</h3>
         </div>  
       </div>
     </>

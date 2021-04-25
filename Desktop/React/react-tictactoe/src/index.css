@@ -6,12 +6,12 @@
 }
 
 body {
-  background-color: black;
-  color: white;
+  background-color: rgb(185, 172, 172);
+  color: black;
   font-family: "Roboto", sans-serif;
   display: flex;
   /* align-items: center; */
-  justify-content: flex-end;  /*change */
+  justify-content: flex-start; 
   min-height: 100vh;
   padding: 2rem;
 }
@@ -22,7 +22,7 @@ h1 {
 .board {
   position: absolute;
   top:120px;
-  left:200px;
+  right:100px;
   border: 1rem solid #ff652f;
   background: #ff652f;
   width: 500px;
@@ -77,12 +77,7 @@ li {
   display:inline;
   width:70%;
 }
-.button-highlighter
+.highlight
 {
-  color: rgb(201, 96, 96);
-}
-.just
-{
-  text-align: center;
-  color:white;
+  background-color:royalblue !important;
 }
