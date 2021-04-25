@@ -8,8 +8,16 @@ const Game = () => {
     const [xIsNext, setXisNext] = useState(true);
     const winner = calculateWinner(board);
 
-    const handleClick = () => {
+    const handleClick = i => {
+        const boardCopy = [...board];     //shallow copy of board state
 
+        //If user click an occupied square or if game is won,return
+        if(winner || boardCopy[i]) return
+
+        //Put an x or an 0 in the clicked square
+        boardCopy[i] = xIsNext ? 'x' : 'o';
+        setBoard(boardCopy);
+        setXisNext(!xIsNext);
     }
     const jumpTo = () =>
     {
